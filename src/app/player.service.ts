@@ -16,7 +16,7 @@ export class PlayerService {
 
 
 
-  getBooks(): Observable<IPlayer[]> {
+  getPlayers(): Observable<IPlayer[]> {
 
     console.log("get players called" );
 
