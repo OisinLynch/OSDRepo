@@ -1,8 +1,10 @@
 export interface IPlayer {
 
-    name:  string,
-    age: string [],
+    firstName:  string,
+    lastName: string,
+    age: string,
     position: String,
-    team: String,
-    jerseynumber: number,
+    teamName: String,
+    jerseyNumber: string,
+    id: string,
 }

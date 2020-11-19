@@ -13,8 +13,26 @@ export class PlayerService {
 
   constructor(private http: HttpClient) { }
 
+  addPlayer(player: IPlayer): Observable<IPlayer> {
+    return this.http.post<IPlayer>(this.dataUri, player)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
 
+  updatePlayer(id: string, player: IPlayer): Observable<IPlayer> {
+    console.log('subscribing to update' + id);
+    let playerURI: string = this.dataUri + '/' + id;
+    return this.http.put<IPlayer>(playerURI, player)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
 
+  deletePlayer(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.dataUri}/${id}`)
+    .pipe(catchError(this.handleError));
+  }
 
   getPlayers(): Observable<IPlayer[]> {
 
@@ -40,7 +58,12 @@ export class PlayerService {
       console.error(
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);
+
+        if (error.status == 412) {
+          return throwError('412 Error' + JSON.stringify(error.error))
+        }
     }
+    
     // Return an observable with a user-facing error message.
     return throwError(
       'Something bad happened; please try again later.');

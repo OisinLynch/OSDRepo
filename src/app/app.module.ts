@@ -7,18 +7,27 @@ import { AppComponent } from './app.component';
 import { PlayerDetailsComponent } from './player/player-details/player-details.component';
 import { PlayerListComponent } from './player/player-list/player-list.component';
 import { PlayerRowComponent } from './player/player-row/player-row.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PlayerFormComponent } from './player-form/player-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
-   // PlayerComponent,
+    //PlayerComponent,
     PlayerDetailsComponent,
     PlayerListComponent,
-    PlayerRowComponent
+    PlayerRowComponent,
+    PlayerFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    NgbModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

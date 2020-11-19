@@ -1,1 +1,32 @@
-<p>player-list works!</p>
+<div class="container-fluid">
+
+    <button (click)="openAddPlayer()" *ngIf="!showPlayerForm"
+    class="btn btn-lg btn-outline-primary" >Add Player</button>
+    
+    <button (click)="openEditPlayer()" *ngIf="!showPlayerForm" [disabled]="!currentPlayer"
+    class="btn btn-lg btn-outline-primary" >Edit Player</button>
+
+    <button (click)="openDeletePlayer()" *ngIf="!showPlayerForm" [disabled]="!currentPlayer"
+    class="btn btn-lg btn-outline-danger" >Delete Player</button>
+    
+    <app-player-form *ngIf="showPlayerForm" 
+    (playerFormClose)="playerFormClose($event)" [player]="currentPlayer"></app-player-form>  
+    
+      <p>
+        <ngb-alert *ngIf="message" [dismissible]="true">
+          <strong>Warning!</strong> {{message}}
+        </ngb-alert>
+      </p>
+     
+        <app-player-row class="card" *ngFor="let p of playerList"
+        [player]="player"
+        (click)='clicked(p)'
+        [class.bg-info]="isSelected(b)" [class.text-white]="isSelected(b)"></app-player-row>
+    
+        <app-player-details *ngIf="currentPlayer" [player]="currentPlayer">
+     </app-player-details>
+    
+    
+      
+    
+      </div>
