@@ -13,6 +13,8 @@ import { PlayerFormComponent } from './player-form/player-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { appInitializer } from './helpers/app.initialiser';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [

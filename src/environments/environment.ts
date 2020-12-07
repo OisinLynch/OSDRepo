@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'https://localhost:8080', // your server side code
-  facebookAppId: '12345' // the appID of your facebook app
+  facebookAppId: '3548214578606004' // the appID of your facebook app
 
 };
 
