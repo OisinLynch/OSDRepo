@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { PlayerDetailsComponent } from './player/player-details/player-details.component';
 import { PlayerListComponent } from './player/player-list/player-list.component';
 import { PlayerRowComponent } from './player/player-row/player-row.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlayerFormComponent } from './player-form/player-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { appInitializer } from './helpers/app.initialiser';
 import { UserService } from './user.service';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { UserService } from './user.service';
   ],
   providers: [
     { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [UserService] },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })
