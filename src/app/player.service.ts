@@ -3,13 +3,15 @@ import { IPlayer } from './model/player'
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlayerService {
 
-  private dataUri = 'http://localhost:3000/players'
+  private dataUri = `${environment.apiUrl}/players`;
+ //private dataUri = 'http://localhost:3000/players'
 
   constructor(private http: HttpClient) { }
 
