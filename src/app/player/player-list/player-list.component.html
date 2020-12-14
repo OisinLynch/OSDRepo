@@ -21,9 +21,9 @@
       </p>
      
         <app-player-row class="card" *ngFor="let p of playerList"
-        [player]="player"
+        [player]="p"
         (click)='clicked(p)'
-        [class.bg-info]="isSelected(b)" [class.text-white]="isSelected(b)"></app-player-row>
+        [class.bg-info]="isSelected(p)" [class.text-white]="isSelected(p)"></app-player-row>
     
         <app-player-details *ngIf="currentPlayer" [player]="currentPlayer">
      </app-player-details>

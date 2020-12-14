@@ -38,6 +38,14 @@ export class UserService {
             });
     }
 
+    getCurrentUser() {
+        return new Promise((resolve, reject) => {
+          return this.http.get(`https://localhost:8080/auth/me`).toPromise().then(response => {
+            resolve(response);
+          }).catch(() => reject());
+        });
+      }
+
     facebookLogin() {
         // login with facebook and return observable with fb access token on success
         return from(new Promise<fb.StatusResponse>(resolve => 

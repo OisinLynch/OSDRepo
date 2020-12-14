@@ -8,7 +8,7 @@ import { PlayerListComponent } from './player/player-list/player-list.component'
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'players', component: PlayerListComponent, canActivate: [AuthGuard]},
+  {path: 'players', component: PlayerListComponent},
   {path: 'login', component: LoginComponent}
 ];
 

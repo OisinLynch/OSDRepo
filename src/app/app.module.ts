@@ -17,6 +17,7 @@ import { appInitializer } from './helpers/app.initialiser';
 import { UserService } from './user.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     PlayerRowComponent,
     PlayerFormComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
