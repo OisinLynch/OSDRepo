@@ -27,6 +27,31 @@ export class UserService {
         return this.userSubject.value;
     }
 
+    fbLogin() {
+    return new Promise((resolve, reject) => {
+
+      FB.login(result => {
+        if (result.authResponse) {
+          return this.http
+            .post(`https://localhost:8080/auth/facebook/start`, { access_token: result.authResponse.accessToken })
+            .toPromise()
+            .then(response => {
+
+              // note: it expects the token in the response
+              const token = response;
+              if (token) {
+                localStorage.setItem('id_token', JSON.stringify(token));
+              }
+              resolve(response);
+            })
+            .catch(() => reject());
+        } else {
+          reject();
+        }
+      }, { scope: 'public_profile,email' });
+    });
+  }
+
     login() {
         // login with facebook then authenticate with the API to get a JWT auth token
         this.facebookLogin()

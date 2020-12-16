@@ -18,6 +18,7 @@ import { UserService } from './user.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FacebookLoginComponent } from './facebook-login/facebook-login.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PlayerFormComponent,
     LoginComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    FacebookLoginComponent
   ],
   imports: [
     BrowserModule,
