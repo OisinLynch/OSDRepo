@@ -19,6 +19,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FacebookLoginComponent } from './facebook-login/facebook-login.component';
+import { OwlModule } from 'ngx-owl-carousel';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FacebookLoginComponent } from './facebook-login/facebook-login.componen
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
+    OwlModule,
     FormsModule
   ],
   providers: [
