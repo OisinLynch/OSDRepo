@@ -28,6 +28,9 @@ export class PlayerFormComponent implements OnInit {
   get teamName() {
     return this.playerForm.get('teamName');
   }
+  get jerseyNumber() {
+    return this.playerForm.get('jerseyNumber');
+  }
 
   get age() {
     return this.playerForm.get('age');
@@ -49,7 +52,8 @@ export class PlayerFormComponent implements OnInit {
     this.playerForm = new FormGroup({
       firstName: new FormControl(this.player.firstName, [Validators.required, Validators.minLength(2)]),
       lastName: new FormControl(this.player.lastName, [Validators.required, Validators.minLength(2)]),
-      //teamName: new FormControl(this.playerForm.teamName,[Validators.required]),
+      teamName: new FormControl(this.player.teamName, [Validators.required]),
+      jerseyNumber: new FormControl(this.player.jerseyNumber, [Validators.required]),
       age: new FormControl(this.player.age, [Validators.required]),
       position: new FormControl(this.player.position, [Validators.required]),
     });
