@@ -17,7 +17,12 @@ export class PlayerFormComponent implements OnInit {
   isNewPlayerForm: boolean = false;
   playerForm: FormGroup;
 
-  
+  componenetName = 'User';
+
+  sum()
+  {
+    return 100;
+  }
 
   get firstName() {
     return this.playerForm.get('firstName');

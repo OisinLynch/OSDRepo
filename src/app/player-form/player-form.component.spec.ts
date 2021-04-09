@@ -22,4 +22,12 @@ describe('PlayerFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('testing title', () => {
+    expect(component.componenetName).toBe('User');
+  });
+
+  it('testing function', () => {
+    expect(component.sum()).toBe(100);
+  });
 });
