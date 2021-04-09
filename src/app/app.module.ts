@@ -21,6 +21,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FacebookLoginComponent } from './facebook-login/facebook-login.component';
 import { OwlModule } from 'ngx-owl-carousel';
 
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './reducers/player.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +44,10 @@ import { OwlModule } from 'ngx-owl-carousel';
     NgbModule,
     ReactiveFormsModule,
     OwlModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({
+      player: reducer
+    })
   ],
   providers: [
     { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [UserService] },
